@@ -13,7 +13,7 @@
             --bg-color: #f8f9fa;
             --text-color: #2b2d42;
             --card-bg: #ffffff;
-            --nav-bg: rgba(255, 255, 255, 0.8);
+            --nav-bg: rgba(255, 255, 255, 0.85);
             --footer-bg: #2b2d42;
             --gold: #d4af37;
             --gold-hover: #b5952f;
@@ -25,7 +25,7 @@
             --bg-color: #0f172a;
             --text-color: #f8f9fa;
             --card-bg: #1e293b;
-            --nav-bg: rgba(15, 23, 42, 0.8);
+            --nav-bg: rgba(15, 23, 42, 0.85);
             --footer-bg: #0b1120;
         }
 
@@ -91,6 +91,31 @@
             color: var(--gold);
         }
 
+        /* Tombol Hubungi Kami di Navbar */
+        .btn-hubungi {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--wa-color);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hubungi svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        .btn-hubungi:hover {
+            background-color: var(--wa-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        }
+
         .btn-dark-mode {
             background: var(--text-color);
             color: var(--bg-color);
@@ -104,6 +129,7 @@
             align-items: center;
             gap: 5px;
             transition: transform 0.2s;
+            margin-left: 10px;
         }
 
         .btn-dark-mode:hover {
@@ -269,35 +295,60 @@
             color: white;
             padding: 60px 20px 30px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         footer h3 {
             color: var(--gold);
             font-size: 1.5em;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
         footer .sosmed-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 30px;
         }
 
-        footer .sosmed-links a {
-            color: white;
+        .sosmed-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            color: var(--gold);
             text-decoration: none;
-            font-weight: 500;
-            padding: 8px 20px;
-            border-radius: 30px;
-            background: rgba(255,255,255,0.1);
-            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        footer .sosmed-links a:hover {
+        .sosmed-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            transition: transform 0.4s ease;
+        }
+
+        .sosmed-btn:hover {
             background: var(--gold);
             color: var(--footer-bg);
-            transform: translateY(-3px);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .sosmed-btn:hover svg {
+            transform: rotate(360deg);
+        }
+
+        .sosmed-btn.whatsapp:hover {
+            background: var(--wa-color);
+            color: white;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
         }
 
         .copyright {
@@ -306,34 +357,125 @@
             margin-top: 20px;
         }
 
-        /* Tombol Kembali ke Atas */
+        /* Tombol Kembali ke Atas Modern */
         .btn-ke-atas {
-            display: none; /* Disembunyikan secara default */
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            font-size: 1.2em;
+            bottom: 40px;
+            right: 40px;
+            z-index: 999;
+            width: 55px;
+            height: 55px;
             border: none;
             outline: none;
-            background-color: var(--gold);
-            color: white;
+            background: linear-gradient(135deg, var(--gold), var(--gold-hover));
             cursor: pointer;
-            padding: 12px 18px;
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; 
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .btn-ke-atas.tampil {
+            opacity: 1;
+            visibility: visible;
+            animation: mengapung 2.5s ease-in-out infinite;
+        }
+
+        .btn-ke-atas svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+            transition: transform 0.3s ease;
         }
 
         .btn-ke-atas:hover {
-            background-color: var(--text-color);
-            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.7);
+            animation-play-state: paused;
+        }
+
+        .btn-ke-atas:hover svg {
+            transform: translateY(-4px);
+        }
+
+        @keyframes mengapung {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Modal Pop-up CSS */
+        .modal {
+            display: none; /* Disembunyikan secara default */
+            position: fixed;
+            z-index: 2000; /* Di atas navbar */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.tampil {
+            display: flex; /* Ditampilkan di tengah */
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .modal.tampil .modal-content {
+            transform: translateY(0); /* Animasi meluncur dari atas */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--text-color);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--gold);
+        }
+
+        .modal-content h2 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .modal-content h2::after {
+            display: none; /* Menghilangkan garis bawah dari h2 umum */
         }
 
         /* Responsif HP */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             header h1 { font-size: 2.2em; }
-            .nav-links { display: none; }
+            .nav-links a:not(.btn-hubungi) { display: none; }
             .navbar { justify-content: space-between; }
         }
     </style>
@@ -343,10 +485,18 @@
     <nav class="navbar">
         <div class="nav-logo">Chitra WO</div>
         <div class="nav-links">
+            <a href="#">Beranda</a>
             <a href="#fasilitas">Layanan</a>
             <a href="#lokasi">Lokasi</a>
+            <a href="#bagian-footer">Temukan Kami</a>
+            
+            <a href="https://wa.me/628536464881" target="_blank" class="btn-hubungi" aria-label="Hubungi WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                Hubungi Kami
+            </a>
+            
+            <button id="tombolDarkMode" class="btn-dark-mode">🌙 Gelap</button>
         </div>
-        <button id="tombolDarkMode" class="btn-dark-mode">🌙 Gelap</button>
     </nav>
 
     <header>
@@ -417,20 +567,44 @@
         </div>
     </section>
 
-    <footer>
+    <footer id="bagian-footer">
         <div class="container" style="padding: 20px 0;">
-            <h3>Temukan Kami</h3>
+            <h3>Temukan Kami di Platform Ini</h3>
             <div class="sosmed-links">
-                <a href="#">Instagram</a>
-                <a href="#">TikTok</a>
-                <a href="#">YouTube</a>
-                <a href="https://wa.me/628536464881" target="_blank">WhatsApp</a>
+                
+                <a href="#" class="sosmed-btn" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069s-3.584-.011-4.85-.069c-3.26-.148-4.771-1.699-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.36-.2 6.78-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.2-4.36-2.62-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.645-1.44-1.44-1.44z"/></svg>
+                </a>
+                
+                <a href="#" class="sosmed-btn" aria-label="TikTok">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                </a>
+
+                <a href="#" class="sosmed-btn" aria-label="YouTube">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                </a>
+
+                <a href="https://wa.me/628536464881" target="_blank" class="sosmed-btn whatsapp" aria-label="WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                </a>
+
             </div>
             <p class="copyright">© 2026 Chitra Wedding Organizer. All rights reserved.</p>
         </div>
     </footer>
 
-    <button id="btnKeAtas" class="btn-ke-atas" title="Kembali ke atas">⬆️</button>
+    <button id="btnKeAtas" class="btn-ke-atas" aria-label="Kembali ke atas">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.828V20h-2V7.828l-5.364 5.364-1.414-1.414L12 4l7.778 7.778-1.414 1.414L13 7.828z"/></svg>
+    </button>
+
+    <div id="modalDetail" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="tutupModal">&times;</span>
+            <h2 id="judulModal">Detail Layanan</h2>
+            <p style="margin-bottom: 20px;">Fasilitas ini mencakup pelayanan eksklusif dari tim profesional kami. Untuk informasi harga paket, ketersediaan jadwal, dan penyesuaian konsep sesuai impian pernikahan Anda, silakan hubungi kami untuk konsultasi gratis.</p>
+            <a href="https://wa.me/628536464881" target="_blank" class="btn-hubungi" style="display: inline-flex; justify-content: center;">Tanya Lebih Lanjut di WA</a>
+        </div>
+    </div>
 
     <script>
         // Logika Dark Mode
@@ -447,22 +621,48 @@
 
         // Logika Tombol Kembali ke Atas
         const btnKeAtas = document.getElementById("btnKeAtas");
-
-        // Memunculkan tombol saat di-scroll ke bawah 300px
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btnKeAtas.style.display = "block";
+                btnKeAtas.classList.add("tampil");
             } else {
-                btnKeAtas.style.display = "none";
+                btnKeAtas.classList.remove("tampil");
             }
         };
 
-        // Menggulir ke atas (kordinat top: 0) saat diklik
         btnKeAtas.addEventListener("click", function() {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth" // Efek gulir yang mulus
+                behavior: "smooth"
             });
+        });
+
+        // Logika Modal (Pop-up) Detail
+        const modal = document.getElementById("modalDetail");
+        const tutupModal = document.getElementById("tutupModal");
+        const tombolDetail = document.querySelectorAll(".btn-detail");
+        const judulModal = document.getElementById("judulModal");
+
+        // Buka modal saat tombol detail mana pun diklik
+        tombolDetail.forEach(tombol => {
+            tombol.addEventListener("click", function() {
+                // Mengambil nama fasilitas dari h3 di dalam kartu yang sama
+                const judulKartu = this.closest('.isi-kartu').querySelector('h3').innerText;
+                judulModal.innerText = "Detail " + judulKartu; // Mengubah judul pop-up
+                
+                modal.classList.add("tampil"); // Menampilkan pop-up
+            });
+        });
+
+        // Tutup modal saat tombol silang (x) diklik
+        tutupModal.addEventListener("click", function() {
+            modal.classList.remove("tampil");
+        });
+
+        // Tutup modal jika area gelap di luar kotak putih diklik
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.classList.remove("tampil");
+            }
         });
     </script>
 
