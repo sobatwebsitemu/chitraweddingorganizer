@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitra Wedding Organizer</title>
+    
+    <style>
+        /* Pengaturan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcfcfc;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: #d4af37; /* Warna Emas Elegan */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Fasilitas Grid */
+        .grid-fasilitas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        /* Kartu Fasilitas */
+        .kartu {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .kartu:hover {
+            transform: translateY(-5px);
+        }
+
+        .kartu img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .kartu h3 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .kartu p {
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Tombol */
+        .grup-tombol {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-detail, .btn-tanya {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-detail {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .btn-tanya {
+            background-color: #25D366; /* Warna Khas WhatsApp */
+            color: white;
+        }
+
+        /* Peta */
+        .peta-wrapper {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer .sosmed-links a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chitra Wedding Organizer</h1>
+        <p>Wujudkan Pernikahan Impian Anda Bersama Kami</p>
+    </header>
+
+    <section id="fasilitas" class="container">
+        <h2>Layanan & Fasilitas Kami</h2>
+        <div class="grid-fasilitas">
+            
+            <div class="kartu">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500" alt="Dekorasi Pernikahan">
+                <h3>Dekorasi Premium</h3>
+                <p>Layanan dekorasi pelaminan modern, klasik, hingga adat dengan bunga segar dan pencahayaan elegan.</p>
+                <div class="grup-tombol">
+                    <button class="btn-detail">Lihat Detail</button>
+                    <a href="https://wa.me/628536464881?text=Halo%20Chitra%20WO,%20saya%20ingin%20bertanya%20detail%20tentang%20layanan%20Dekorasi%20Premium." target="_blank" class="btn-tanya">Tanya via WA</a>
+                </div>
+            </div>
+
+            <div class="kartu">
+                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=500" alt="Catering Pernikahan">
+                <h3>Catering & Prasmanan</h3>
+                <p>Hidangan lezat dengan berbagai menu pilihan nusantara maupun internasional. Disajikan higienis dan menarik.</p>
+                <div class="grup-tombol">
+                    <button class="btn-detail">Lihat Detail</button>
+                    <a href="https://wa.me/628536464881?text=Halo%20Chitra%20WO,%20saya%20ingin%20bertanya%20detail%20tentang%20layanan%20Catering%20dan%20Prasmanan." target="_blank" class="btn-tanya">Tanya via WA</a>
+                </div>
+            </div>
+
+            <div class="kartu">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500" alt="Fotografer Pernikahan">
+                <h3>Dokumentasi Foto & Video</h3>
+                <p>Abadikan momen tak terlupakan dengan tim fotografer dan videografer profesional kami. Termasuk album eksklusif.</p>
+                <div class="grup-tombol">
+                    <button class="btn-detail">Lihat Detail</button>
+                    <a href="https://wa.me/628536464881?text=Halo%20Chitra%20WO,%20saya%20ingin%20bertanya%20detail%20tentang%20layanan%20Dokumentasi." target="_blank" class="btn-tanya">Tanya via WA</a>
+                </div>
+            </div>
+
+            <div class="kartu">
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500" alt="Gaun Pengantin">
+                <h3>Rias Pengantin & Busana</h3>
+                <p>Tampil sempurna di hari istimewa dengan riasan flawless dan pilihan gaun atau kebaya rancangan desainer.</p>
+                <div class="grup-tombol">
+                    <button class="btn-detail">Lihat Detail</button>
+                    <a href="https://wa.me/628536464881?text=Halo%20Chitra%20WO,%20saya%20ingin%20bertanya%20detail%20tentang%20layanan%20Rias%20dan%20Busana." target="_blank" class="btn-tanya">Tanya via WA</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="lokasi" class="container">
+        <h2>Lokasi Kami</h2>
+        <p>Jl. Hangtuah No.87, Rejosari, Kec. Tenayan Raya, Kota Pekanbaru, Riau 28112</p>
+        <div class="peta-wrapper">
+            <iframe src="https://maps.google.com/maps?q=Jl.+Hangtuah+No.87,+Rejosari,+Tenayan+Raya,+Pekanbaru&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Temukan Kami</h3>
+            <div class="sosmed-links">
+                <a href="#">Instagram</a> | 
+                <a href="#">TikTok</a> | 
+                <a href="#">YouTube</a> | 
+                <a href="https://wa.me/628536464881">WhatsApp</a>
+            </div>
+            <p>© 2026 Chitra Wedding Organizer. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
