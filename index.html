@@ -771,16 +771,13 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); /* Latar lebih gelap untuk kontras */
+            background-color: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
             opacity: 0;
             transition: opacity 0.3s ease;
             
-            /* Mengizinkan scroll jika konten kepanjangan */
             overflow-y: auto; 
             padding: 20px 10px;
-            
-            /* Dimulai dari atas jika panjang, bukan di tengah */
             align-items: flex-start; 
             justify-content: center;
         }
@@ -799,7 +796,6 @@
             max-width: 500px;
             position: relative;
             
-            /* Memastikan modal selalu berada di tengah area scroll */
             margin: auto; 
             height: auto;
             
@@ -941,13 +937,13 @@
                 padding: 20px;
             }
             .modal-gambar {
-                height: 180px; /* Gambar diperkecil di HP */
+                height: 180px;
             }
             .modal-content h2 {
-                font-size: 1.5em; /* Judul lebih kecil */
+                font-size: 1.5em; 
             }
             .modal-content p {
-                font-size: 0.95em; /* Teks deskripsi lebih proporsional */
+                font-size: 0.95em; 
                 margin-bottom: 20px;
             }
         }
@@ -1003,7 +999,7 @@
 
     <header>
         <div class="hero-slider">
-            <div class="slide"
+            <div class="slide active"
                 style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)), url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1Jh5CL.img?w=736&h=491&m=6&x=120&y=120&s=280&d=280');">
             </div>
             <div class="slide"
