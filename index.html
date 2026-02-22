@@ -340,15 +340,8 @@
         }
 
         @keyframes floatDown {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
         }
 
         /* --- TEKS BERKILAU --- */
@@ -368,9 +361,7 @@
         }
 
         @keyframes shimmer {
-            to {
-                background-position: 200% center;
-            }
+            to { background-position: 200% center; }
         }
 
         /* --- KARTU LAYANAN --- */
@@ -517,17 +508,9 @@
         }
 
         @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         .btn-dark-mode {
@@ -632,21 +615,10 @@
             transform: translateY(0);
         }
 
-        .kartu:nth-child(1) {
-            transition-delay: 0.1s;
-        }
-
-        .kartu:nth-child(2) {
-            transition-delay: 0.2s;
-        }
-
-        .kartu:nth-child(3) {
-            transition-delay: 0.3s;
-        }
-
-        .kartu:nth-child(4) {
-            transition-delay: 0.4s;
-        }
+        .kartu:nth-child(1) { transition-delay: 0.1s; }
+        .kartu:nth-child(2) { transition-delay: 0.2s; }
+        .kartu:nth-child(3) { transition-delay: 0.3s; }
+        .kartu:nth-child(4) { transition-delay: 0.4s; }
 
         /* --- FOOTER & KREATOR GLOW --- */
         footer {
@@ -784,33 +756,33 @@
         }
 
         @keyframes mengapung {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
 
-        /* --- MODAL POP-UP & GAMBAR --- */
+        /* ========================================= */
+        /* --- MODAL POP-UP & GAMBAR (DIPERBARUI) -- */
+        /* ========================================= */
         .modal {
-            display: none;
+            display: none; 
             position: fixed;
             z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.85); /* Latar lebih gelap untuk kontras */
             backdrop-filter: blur(8px);
             opacity: 0;
             transition: opacity 0.3s ease;
+            
+            /* Mengizinkan scroll jika konten kepanjangan */
+            overflow-y: auto; 
+            padding: 20px 10px;
+            
+            /* Dimulai dari atas jika panjang, bukan di tengah */
+            align-items: flex-start; 
             justify-content: center;
-            align-items: center;
-            padding: 20px;
         }
 
         .modal.tampil {
@@ -821,11 +793,16 @@
         .modal-content {
             background-color: var(--card-bg);
             color: var(--text-color);
-            padding: 40px;
-            border-radius: 30px;
+            padding: 30px;
+            border-radius: 24px;
             width: 100%;
-            max-width: 550px;
+            max-width: 500px;
             position: relative;
+            
+            /* Memastikan modal selalu berada di tengah area scroll */
+            margin: auto; 
+            height: auto;
+            
             transform: scale(0.9);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: var(--shadow-lg);
@@ -839,8 +816,8 @@
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 25px;
+            top: 15px;
+            right: 20px;
             color: var(--text-muted);
             font-size: 32px;
             font-weight: 300;
@@ -859,7 +836,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            font-size: 2em;
+            font-size: 1.8em;
             animation: none;
         }
 
@@ -868,9 +845,10 @@
         }
 
         .modal-content p {
-            font-size: 1.1em;
+            font-size: 1.05em;
             line-height: 1.6;
             color: var(--text-muted);
+            margin-bottom: 30px;
         }
 
         .modal-gambar {
@@ -956,6 +934,23 @@
                 background-color: var(--gold);
             }
         }
+        
+        /* --- PERBAIKAN KHUSUS MODAL DI HP KECIL --- */
+        @media (max-width: 600px) {
+            .modal-content {
+                padding: 20px;
+            }
+            .modal-gambar {
+                height: 180px; /* Gambar diperkecil di HP */
+            }
+            .modal-content h2 {
+                font-size: 1.5em; /* Judul lebih kecil */
+            }
+            .modal-content p {
+                font-size: 0.95em; /* Teks deskripsi lebih proporsional */
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -1008,7 +1003,7 @@
 
     <header>
         <div class="hero-slider">
-            <div class="slide active"
+            <div class="slide"
                 style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)), url('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1Jh5CL.img?w=736&h=491&m=6&x=120&y=120&s=280&d=280');">
             </div>
             <div class="slide"
@@ -1192,7 +1187,7 @@
             <span class="close-btn" id="tutupModal">×</span>
             <h2 id="judulModal">Detail Layanan</h2>
             <img id="gambarModal" src="" alt="Ilustrasi Layanan" class="modal-gambar">
-            <p style="margin-bottom: 30px;">Layanan eksklusif ini dirancang khusus untuk mewujudkan pernikahan impian
+            <p>Layanan eksklusif ini dirancang khusus untuk mewujudkan pernikahan impian
                 Anda. Kami menawarkan konsultasi mendalam untuk menyesuaikan setiap detail dengan visi dan anggaran
                 Anda. Hubungi tim profesional kami sekarang untuk penawaran spesial.</p>
             <a href="https://wa.me/628536464881" target="_blank" class="btn-modern btn-hijau"
