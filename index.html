@@ -813,17 +813,26 @@
         .close-btn {
             position: absolute;
             top: 15px;
-            right: 20px;
-            color: var(--text-muted);
-            font-size: 32px;
-            font-weight: 300;
+            right: 15px;
+            color: var(--text-color);
+            background-color: var(--bg-color); /* Latar belakang tombol */
+            width: 35px; /* Area sentuh lebih besar */
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
             cursor: pointer;
+            z-index: 100; /* Memastikan di atas elemen lain */
+            box-shadow: var(--shadow-sm);
             transition: all 0.3s;
-            line-height: 1;
         }
 
         .close-btn:hover {
-            color: var(--gold);
+            color: var(--bg-color);
+            background-color: var(--gold);
             transform: rotate(90deg);
         }
 
@@ -934,7 +943,12 @@
         /* --- PERBAIKAN KHUSUS MODAL DI HP KECIL --- */
         @media (max-width: 600px) {
             .modal-content {
-                padding: 20px;
+                /* Padding atas lebih besar agar tidak tabrakan dengan tombol X */
+                padding: 45px 20px 20px 20px; 
+            }
+            .close-btn {
+                top: 10px;
+                right: 10px;
             }
             .modal-gambar {
                 height: 180px;
