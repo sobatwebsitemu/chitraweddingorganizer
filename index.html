@@ -25,6 +25,10 @@
             --gold-dark: #A38347;
             --gold-light: #EADCB3;
             --gold-metallic-gradient: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            
+            /* Warna Teks Emas Khusus Mode Terang (Lebih Gelap & Terbaca) */
+            --gold-text-gradient: linear-gradient(to right, #A38347, #BF953F, #8E5E14); 
+            
             --gold-button-gradient: linear-gradient(135deg, #C0A062, #EADCB3, #A38347);
 
             /* Warna asli WhatsApp untuk tombol Hubungi Kami */
@@ -47,6 +51,9 @@
             --nav-border: rgba(255, 255, 255, 0.05);
             --footer-bg: #080d17;
             --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            
+            /* Kembali ke Emas Metalik Menyala Khusus Mode Gelap */
+            --gold-text-gradient: var(--gold-metallic-gradient);
         }
 
         * {
@@ -98,7 +105,7 @@
         .nav-logo {
             font-size: 1.6em;
             font-weight: 700;
-            background: var(--gold-metallic-gradient);
+            background: var(--gold-text-gradient); /* Diubah menggunakan variabel teks */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
@@ -174,7 +181,8 @@
         /* --- KARTU LAYANAN --- */
         h2 {
             text-align: center; font-size: 3em; font-weight: 700; margin-bottom: 60px;
-            background: var(--gold-metallic-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1.5px;
+            background: var(--gold-text-gradient); /* Diubah menggunakan variabel teks */
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1.5px;
         }
         .grid-fasilitas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; position: relative; z-index: 2; }
         .kartu {
@@ -186,7 +194,10 @@
         .kartu img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
         .kartu:hover img { transform: scale(1.06); }
         .isi-kartu { padding: 35px; display: flex; flex-direction: column; flex-grow: 1; }
-        .isi-kartu h3 { background: var(--gold-metallic-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.7em; font-weight: 600; margin-bottom: 15px; }
+        .isi-kartu h3 { 
+            background: var(--gold-text-gradient); /* Diubah menggunakan variabel teks */
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.7em; font-weight: 600; margin-bottom: 15px; 
+        }
         .isi-kartu p { color: var(--text-muted); font-size: 1.05em; line-height: 1.7; margin-bottom: 35px; flex-grow: 1; font-weight: 400; }
 
         /* --- TOMBOL --- */
@@ -268,7 +279,10 @@
         /* --- FOOTER --- */
         footer { background-color: var(--footer-bg); color: white; padding: 100px 20px 50px; text-align: center; position: relative; overflow: hidden; margin-top: 100px; border-top-left-radius: 60px; border-top-right-radius: 60px; box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
         footer::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80%; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
-        footer h3 { background: var(--gold-metallic-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2em; font-weight: 700; margin-bottom: 40px; letter-spacing: 1.5px; }
+        footer h3 { 
+            background: var(--gold-text-gradient); /* Diubah menggunakan variabel teks */
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2em; font-weight: 700; margin-bottom: 40px; letter-spacing: 1.5px; 
+        }
         .sosmed-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 50px; }
         .sosmed-btn { display: flex; justify-content: center; align-items: center; width: 60px; height: 60px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); color: var(--gold); text-decoration: none; border: 1px solid rgba(192, 160, 98, 0.3); transition: all 0.4s ease; backdrop-filter: blur(5px); }
         .sosmed-btn svg { width: 26px; height: 26px; fill: currentColor; transition: transform 0.4s ease; }
@@ -304,7 +318,6 @@
             opacity: 0; 
             transition: opacity 0.3s ease;
             
-            /* Mengatur box agar berada di tengah layar */
             align-items: center; 
             justify-content: center; 
             padding: 20px 10px; 
@@ -312,7 +325,7 @@
         }
         
         .modal.tampil { 
-            display: flex; /* Mengaktifkan alignment flexbox saat tampil */
+            display: flex; 
             opacity: 1; 
         }
 
@@ -329,7 +342,10 @@
         }
         .close-btn:hover { background: var(--gold-button-gradient); color: #1e272e; transform: rotate(90deg); }
         .modal-gambar { width: 100%; height: 250px; object-fit: cover; border-radius: 16px; margin-bottom: 20px; box-shadow: var(--shadow-md); border: 1px solid rgba(192, 160, 98, 0.1); }
-        .modal-content h2 { background: var(--gold-metallic-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; font-size: 1.8em; letter-spacing: 1px; }
+        .modal-content h2 { 
+            background: var(--gold-text-gradient); /* Diubah menggunakan variabel teks */
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; font-size: 1.8em; letter-spacing: 1px; 
+        }
         .modal-content p { font-size: 1.05em; line-height: 1.6; color: var(--text-muted); margin-bottom: 30px; font-weight: 400; }
 
         /* --- RESPONSIF --- */
@@ -505,8 +521,10 @@
 
     <section id="lokasi" class="container">
         <div class="lokasi-header hidden-scroll">
-            <h2>Kunjungi Studio Kami</h2>
-            <p>Jl. Hangtuah No.87, Rejosari, Kec. Tenayan Raya, Kota Pekanbaru, Riau 28112</p>
+            <h2>Kunjungi Lokasi Kami</h2>
+            <p>Alamat:
+                <br>
+                Jl. Hangtuah No.87, Rejosari, Kec. Tenayan Raya, Kota Pekanbaru, Provinsi Riau 28112</p>
         </div>
 
         <div class="peta-wrapper hidden-scroll">
